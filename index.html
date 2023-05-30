@@ -48,7 +48,7 @@
 			and an orange background or a different style as per my preference.</p>
 	  <img id="my-pic" src="http://dummyimage.com/300x400" alt="Time of Day Image" class="flexible">
      <footer>
-      <p><small>&copy; 2022-2023 by 
+      <p><small>&copy; 2022-<span id="my-copyright"></span> by 
           Diego Cepeda, All Rights Reserved ~ 
           <a id="html-checker" href="#" target="_blank">Check HTML</a> ~ 
           <a id="css-checker" href="#" target="_blank">Check CSS</a></small>
@@ -73,19 +73,29 @@
 	
 	let myDate = new Date();
 	let myHour = myDate.getHours();
+	let myYear = myDate.getFullYear();
 	let myGreeting = "";
 	let myColor = "";
 	let myPic = "";
-	//myHour = 7;
+	
+	//myHour = 19;
 
 	console.log(myHour);
 
-	if(myHour < 12){
+	if(myHour >= 5 && myHour < 12){
 		//alert("Good morning!");
 		myGreeting = "Good Morning!";
 		myColor = "orange";
 		myPic = "morning.jpg";
-	
+	}else if(myHour >= 12 && myHour < 18){
+		myGreeting = "Good Afternoon!";
+		myColor = "green";
+		myPic = "afternoon.jpg";
+
+	}else if(myHour >= 18 && myHour < 23){	
+		myGreeting = "Good Evening!";
+		myColor = "Purple";
+		myPic = "afternoon.jpg";
 	}else{
 		//alert("Good Afternoon!");
 		myGreeting = "Good Afternoon!";
@@ -100,6 +110,8 @@
 	document.querySelector("html").style.backgroundColor = myColor;
 
 	document.getElementById("my-pic").src = myPic;
+
+	document.getElementById("my-copyright").innerHTML = myYear;
 
 
 
