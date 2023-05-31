@@ -42,6 +42,7 @@
     <main>
 	 <header><h3>A JavaScript Project by Diego Cepeda</h3></header>
 	 <h3 id="my-greeting">Greeting goes here</h3>
+	 <h3 id="my-day">Week Day Goes Here</h3>
 	    <p>With JavaScript's Date object, you can handle time and create Date objects for any desired or current date and time. 
 			For my website, I can customize the display based on the time of day. 
 			For example, between 5 AM and 12 noon, I can show a sun picture, a 'Good Morning!' message, 
@@ -70,15 +71,16 @@
 
 */
 
-	
+function displayTimeOfDay() {
 	let myDate = new Date();
 	let myHour = myDate.getHours();
 	let myYear = myDate.getFullYear();
+	let myDay = myDate.getDay();
 	let myGreeting = "";
 	let myColor = "";
 	let myPic = "";
 	
-	//myHour = 19;
+	//myHour = 3;
 
 	console.log(myHour);
 
@@ -98,9 +100,9 @@
 		myPic = "afternoon.jpg";
 	}else{
 		//alert("Good Afternoon!");
-		myGreeting = "Good Afternoon!";
-		myColor = "green";
-		myPic = "afternoon.jpg";
+		myGreeting = "Good Night!";
+		myColor = "blue";
+		myPic = "night.jpg";
 	}
 
 	myPic = "images/" + myPic;
@@ -113,8 +115,12 @@
 
 	document.getElementById("my-copyright").innerHTML = myYear;
 
+	let daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    let currentDayOfWeek = "Today is " + daysOfWeek[myDay] + "!";
+    document.getElementById("my-day").innerHTML = currentDayOfWeek;
+}
 
-
+displayTimeOfDay();
 
     document.getElementById("html-checker").setAttribute("href","https://validator.w3.org/nu/?doc=" + location.href);
     document.getElementById("css-checker").setAttribute("href","https://jigsaw.w3.org/css-validator/validator?uri=" + location.href);  
